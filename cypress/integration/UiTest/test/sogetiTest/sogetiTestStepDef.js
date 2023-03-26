@@ -1,8 +1,7 @@
 /// <reference types="Cypress" />
 import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
-import HomePage from "../../pageObjects/HomePage";
-import AutomationPage from "../../pageObjects/AutomationPage";
-import { data } from "cypress/types/jquery";
+import HomePage from "../../../../support/pageObjects/HomePage";
+import AutomationPage from "../../../../support/pageObjects/AutomationPage";
 
 
 const homePage = new HomePage()
