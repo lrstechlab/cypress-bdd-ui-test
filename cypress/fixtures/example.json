@@ -1,5 +1,14 @@
 {
-  "name": "Using fixtures to represent data",
-  "email": "hello@cypress.io",
-  "body": "Fixtures are a great way to mock data for responses to routes"
+  "belgium": "https://www.sogeti.be/",
+  "Finland": "https://www.sogeti.fi/",
+  "France": "https://www.sogeti.fi/",
+  "Germany": "https://www.sogeti.fi/",
+  "Ireland": "https://www.sogeti.fi/",
+  "Luxembourg": "https://www.sogeti.fi/",
+  "Netherlands": "https://www.sogeti.fi/",
+  "Norway": "https://www.sogeti.fi/",
+  "Spain": "https://www.sogeti.fi/",
+  "Sweden": "https://www.sogeti.fi/",
+  "UK": "https://www.sogeti.fi/",
+  "USA": "https://www.sogeti.fi/"
 }

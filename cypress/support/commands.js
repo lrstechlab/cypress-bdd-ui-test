@@ -12,6 +12,20 @@
 // -- This is a parent command --
 // Cypress.Commands.add('login', (email, password) => { ... })
 //
+
+Cypress.Commands.add("getRandomstr",(strlen) => {
+    const stringlen = Date.now().toString();
+    const getUniqueId = () => Cypress._.uniqueId(uniqueSeed);
+    
+    it('uses a unique id', () => {
+      const uniqueId = getUniqueId();
+    });
+
+
+})
+
+
+
 //
 // -- This is a child command --
 // Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
