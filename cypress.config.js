@@ -13,15 +13,21 @@ async function setupNodeEvents(on, config) {
 }
 
 module.exports = defineConfig({
-  defaultCommandTimeout: 6000,
-  env:{
-    url:"https://www.sogeti.com/"
-  },
-  retries:{
-    runMode:1
-  },
-  e2e: {
-    setupNodeEvents,
-    specPattern: 'cypress/integration/UiTest/AutomationTask/UiTest/test/*.feature'
-  },
+
+    defaultCommandTimeout: 6000,
+    env: {
+      url:"https://www.sogeti.com/"
+    },
+    retries: {
+      runMode: 1,
+  
+    },
+    projectId: "nodpcq",
+
+    
+e2e: {
+  setupNodeEvents,
+  specPattern: 'cypress/integration/UiTest/AutomationTask/UiTest/test/*.feature'
+
+},
 });

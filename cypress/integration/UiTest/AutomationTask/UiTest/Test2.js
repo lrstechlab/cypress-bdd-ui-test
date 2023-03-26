@@ -15,8 +15,6 @@ it("2ndtestcase",function()
     cy.contains("Automation").click()
     cy.get(".Form__Title").scrollIntoView().should("contain","Contact us:")
     
-
-
     const random= cy.wrap({ sum: fn })
                     .invoke('makeid', 8)
     cy.get("#ff2ed4d-4861-4914-86eb-87dfa65876d8").type("random")

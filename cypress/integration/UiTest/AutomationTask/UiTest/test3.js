@@ -38,7 +38,7 @@ it("2ndtestcase",function()
 //message
     cy.get('textarea[id="88459d00-b812-459a-99e4-5dc6eff2aa19"]').type(generateRandomString(102),{force: true})
 
-    //clicking on I agreee
+//clicking on I agreee
     cy.get("[value='I agree']").check({force: true})
 
     // can not test submission and final welcome message as the captcha validation is not possible for automation.
