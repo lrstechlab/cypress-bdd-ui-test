@@ -33,9 +33,9 @@ Then('automation screen is displayed', () => {
     cy.url().should("include", "automation")
 })
 
-//*** parameterised this test */
-Then('Automation text is visible in page heading', () => {
-    automationPage.getPageHeading().should("contain", "Automation")
+//*** parameterised this test with dataTable */
+Then('{string} text is visible in page heading', function (headingText) {
+    automationPage.getPageHeading().should("contain", headingText)
 })
 
 Then('Automation and Services are selected', () => {
@@ -66,39 +66,63 @@ When('Fill the First Name, Last Name, Email, Phone and Message fields with Rando
 })
 
 When('click on I agree checkbox', function () {
-   automationPage.getIagreeCheckbox().check({ force: true })
+    automationPage.getIagreeCheckbox().check({ force: true })
 
 })
 
 
 When('Click Submitt Button', function () {
     automationPage.getSubmittButton().click()
- 
- })
 
- When('The form is submitted and Thank you message is displayed', function () {
-    cy.log(" This test can not be automated as as the captcha validation" 
-    +"is not possible for automation. in test environment we should disable captcha and provide the test build ")
- 
- })
- 
-//  When Click the Worldwide Dropdown link in Page Header
+})
+
+When('The form is submitted and Thank you message is displayed', function () {
+    cy.log(" This test can not be automated as as the captcha validation"
+        + "is not possible for automation. in test environment we should disable captcha and provide the test build ")
+
+})
+
 
 When('Click the Worldwide Dropdown link in Page Header', function () {
-        homePage.getCountrySelection().click()
- 
- })
+    homePage.getNavBarCountrySelection().click()
+
+})
+
+
+Then('A Country dropdown list is displayed', () => {
+
+    homePage.getCountriesList().should("be.visible")
+})
+
+//*** parameterised this test with Fixture */
+Then('These are the Country specific Sogeti links', () => {
+    homePage.getCountriesList().each((e, index, list) => {
+        var url = e.prop('href'); //taking the href value i.ee each urls
+        cy.log("url captured form Href" + url)
+        var texte = e.text().trim() // getting the country name and trimming
+        cy.log("countryname Captured from UI" + texte)
+        cy.fixture('example.json').then((data) => {
+            cy.log("this url is from fixture" + data[texte])
+            const domainValue = data[texte]  //getting expected urls from fixture
+            expect(domainValue).not.to.be.undefined  // cheking the country name is correct in data in fixture
+            expect(domainValue).to.eql(url)  // validating the urls from href is matching with the expected urls from out tets data.
+
+        })
+
+    })
+
+})
 
 
 
 
 ///*** The below function will return Random alphanumeric String with passed length */
 
- const generateRandomString = (length) => {
+const generateRandomString = (length) => {
     const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
     let result = '';
     for (let i = 0; i < length; i++) {
-      result += characters.charAt(Math.floor(Math.random() * characters.length));
+        result += characters.charAt(Math.floor(Math.random() * characters.length));
     }
     return result;
-  }
+}

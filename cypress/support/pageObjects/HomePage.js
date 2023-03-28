@@ -14,13 +14,13 @@ class HomePage
     {
         return cy.get(".selected")
     }
-    getCountrySelection()
+    getNavBarCountrySelection()
     {
         return cy.get(".navbar-global")
     }
     getCountriesList()
     {
-        return cy.get("#country-list-id")
+        return cy.get("#country-list-id a")
     }
 
 }

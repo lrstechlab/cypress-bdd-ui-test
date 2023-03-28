@@ -4,6 +4,13 @@ import AutomationPage from "./pageObjects/AutomationPage"
 
 describe("Test Case 3",function() {
 
+    before(function () {
+        // runs once before all tests in the block
+        cy.fixture('example').then(function (data) {
+          this.data = data
+        })
+      })
+
     it("testcase",function()
     {
        const homepage= new HomePage()
@@ -23,21 +30,7 @@ describe("Test Case 3",function() {
 
         //4. Assert that all the Country specific Sogeti links are working.
         
-        cy.get("#country-list-id a").then((e)=>{
-         cy.log
-          var url= e.prop('href');
-          cy.log(url)
-          cy.visit(url)
-          cy.wait(3000)         
-      })
-      var baseUrl = "https://www.sogeti.fi/"
-          cy.log(`Expected to be running on:`);
-          cy.log(baseUrl);
-
-      cy.origin("https://www.sogeti.fi/", () => {
-              // declare cy.origin command on expected domain
-              cy.url().should('contains', "https://www.sogeti.fi/");
-              })
+   
 
     })
 
