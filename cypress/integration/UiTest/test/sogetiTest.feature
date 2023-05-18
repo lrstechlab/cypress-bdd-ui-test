@@ -13,7 +13,7 @@ Feature: Automation of test provided by Sogeti
     Scenario: Test Case-1 user want to check how automation work
     Given I open Sogeti homepage
     When I hover on tab services
-    Then Error message should be displayed to the user that "automation failed"
+    Then Error message should be displayed to the user that "Automation is Failing"
     
     Scenario: Test Case-2 filling the contact form
     Given I open Sogeti homepage
