@@ -88,6 +88,13 @@ When('Click the Worldwide Dropdown link in Page Header', function () {
 
 })
 
+module.exports = function () {
+
+  this.Then(/^Error message should be displayed to the user that \"([^\"]*)\"$/, function (automationfailed, callback) {
+   homePage.getNavBarCountrySelection().click()
+  });
+
+};
 
 Then('A Country dropdown list is displayed', () => {
 
