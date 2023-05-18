@@ -10,7 +10,11 @@ Feature: Automation of test provided by Sogeti
     And "Automation" text is visible in page heading
     And Automation and Services are selected 
 
-  
+    Scenario: Test Case-1 user want to check how automation work
+    Given I open Sogeti homepage
+    When I hover on tab services
+    Then Error message should be displayed to the user that "automation failed"
+    
     Scenario: Test Case-2 filling the contact form
     Given I open Sogeti homepage
     When I hover on tab services
